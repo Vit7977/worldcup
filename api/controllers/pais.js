@@ -4,7 +4,7 @@ const CountryController = {
   async getAllCountries(_, res) {
     try {
       const [result] = await pool.promise().execute(
-        `SELECT pais.nome, pais.bandeira_url, pais.grupo_id, grupo.nome AS grupo_nome 
+        `SELECT pais.id, pais.nome, pais.bandeira_url, pais.grupo_id, grupo.nome AS grupo_nome 
          FROM pais 
          JOIN grupo ON pais.grupo_id = grupo.id`
       );

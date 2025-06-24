@@ -2,11 +2,14 @@ import express from "express";
 import cors from "cors";
 import CountryRouter from "./routes/pais.js";
 import UserRouter from "./routes/usuario.js";
+import GroupRouter from "./routes/grupos.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/grupos", GroupRouter);
 
 app.use("/api/pais", CountryRouter);
 
